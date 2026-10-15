@@ -1,38 +1,22 @@
+"use client";
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { usePageTransition } from "./TransitionProvider";
 
 type LogoProps = {
   light?: boolean;
 };
 
 export default function Logo({ light = false }: LogoProps) {
-  const { navigate } = usePageTransition();
-
   return (
     <Link
       href="/"
       aria-label="Labib - Home"
-      onClick={(event) => {
-        if (
-          event.defaultPrevented ||
-          event.button !== 0 ||
-          event.metaKey ||
-          event.ctrlKey ||
-          event.shiftKey ||
-          event.altKey
-        ) {
-          return;
-        }
-
-        event.preventDefault();
-        navigate("/");
-      }}
       className={`group relative z-[10000] inline-flex items-center gap-3 ${
         light ? "text-[#f7f6f2]" : "text-[#20201e]"
       }`}
     >
+      {/* Logo Icon */}
       <span
         className="relative flex h-11 w-11 shrink-0 items-center justify-center
         border border-current transition-all duration-300
@@ -50,6 +34,7 @@ export default function Logo({ light = false }: LogoProps) {
             strokeWidth="2.5"
             strokeLinecap="square"
           />
+
           <path
             d="M18 31L27 7L36 31M22 21H32"
             stroke="currentColor"
@@ -60,9 +45,11 @@ export default function Logo({ light = false }: LogoProps) {
         </svg>
       </span>
 
+      {/* Logo Text */}
       <span className="flex flex-col gap-1">
         <span className="flex items-center gap-1 text-xl font-semibold tracking-[-0.07em]">
           LABIB
+
           <ArrowUpRight
             size={13}
             strokeWidth={1.8}

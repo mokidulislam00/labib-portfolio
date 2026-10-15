@@ -8,7 +8,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { projects } from "../../../lib/projects";
 import ProjectDetailsAnimation from "../../../components/ProjectDetailsAnimation";
 
-export const instant = false;
+
 
 type PageProps = {
   params: Promise<{ slug: string }>;
