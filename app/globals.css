@@ -1,0 +1,115 @@
+
+@import "tailwindcss";
+
+/* =================================
+   THEME VARIABLES
+================================= */
+
+:root {
+  --background: #f7f6f2;
+  --foreground: #20201e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* =================================
+   GLOBAL STYLES
+================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #20201e;
+  color: #f7f6f2;
+}
+
+/* =================================
+   GSAP PAGE TRANSITION
+================================= */
+
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #20201e;
+  color: #f7f6f2;
+  pointer-events: none;
+  visibility: visible;
+  will-change: transform;
+}
+
+.transition-overlay-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.transition-brand {
+  display: inline-flex;
+  align-items: flex-start;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  line-height: 1;
+}
+
+.transition-brand-mark {
+  margin-left: 4px;
+  font-size: 0.3em;
+  letter-spacing: 0;
+}
+
+
+.transition-line {
+  display: block;
+  width: min(220px, 50vw);
+  height: 1px;
+  background: rgba(247, 246, 242, 0.7);
+  transform: scaleX(0);
+}
+.transition-caption {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-align: center;
+}
+
+/* =================================
+   ACCESSIBILITY
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .page-transition-overlay {
+    will-change: auto;
+  }
+}
