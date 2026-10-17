@@ -1,9 +1,7 @@
 const basePath =
-  process.env.NODE_ENV === "production" &&
-  process.env.GITHUB_ACTIONS === "true"
+  process.env.NODE_ENV === "production"
     ? "/labib-portfolio"
     : "";
-
 export type Project = {
   slug: string;
   number: string;
