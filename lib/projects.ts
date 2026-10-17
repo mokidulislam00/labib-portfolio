@@ -1,3 +1,8 @@
+const basePath =
+  process.env.NODE_ENV === "production" &&
+  process.env.GITHUB_ACTIONS === "true"
+    ? "/labib-portfolio"
+    : "";
 
 export type Project = {
   slug: string;
@@ -19,7 +24,7 @@ export const projects: Project[] = [
     name: "Contact Manager",
     type: "FULL-STACK DEVELOPMENT",
     year: "2026",
-    image: "/projects/project-1.jpg",
+    image: `${basePath}/projects/project-1.jpg`,
     description:
       "A simple and modern application for managing contacts.",
     overview:
@@ -45,7 +50,7 @@ export const projects: Project[] = [
     name: "Inventory Management",
     type: "WEB APPLICATION",
     year: "2026",
-    image: "/projects/project-2.jpg",
+    image: `${basePath}/projects/project-2.jpg`,
     description:
       "A modern dashboard for managing products and inventory.",
     overview:
@@ -71,7 +76,7 @@ export const projects: Project[] = [
     name: "Creative Portfolio",
     type: "WEB DESIGN / DEVELOPMENT",
     year: "2026",
-    image: "/projects/project-3.jpg",
+    image: `${basePath}/projects/project-3.jpg`,
     description:
       "A minimal portfolio with thoughtful interactions and motion.",
     overview:
